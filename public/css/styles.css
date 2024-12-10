@@ -1,0 +1,443 @@
+/* Colores */
+:root {
+    --bg-color: #222;
+    --text-color: #c9c7c7;
+    --secondary-color: #272727;
+    --highlight-color: #242323;
+    --highlight-hover: #4CAF50; /* Verde para hover */
+}
+
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general del body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+
+.window-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.minimize {
+    background-color: yellow;
+}
+
+.maximize {
+    background-color: green;
+}
+
+.close {
+    background-color: red;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Logo */
+.logo {
+    height: 60px; /* Ajusta el tamaño del logo */
+    margin-right: 20px; /* Espacio entre el logo y el título */
+    position: absolute;
+    left: 20px; /* Alineación del logo en la parte izquierda */
+    top: 10px;  /* Un poco de espacio desde la parte superior */
+}
+/* Estilo para el logo grande en Home */
+#home-section .logo-large {
+    width: 100%; /* Para que el logo ocupe todo el ancho del contenedor */
+    max-width: 400px; /* Limitar el tamaño máximo del logo */
+    margin: 20px auto; /* Centrado y espaciado alrededor */
+    display: block;
+}
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--highlight-color);
+    position: relative;
+    height: 50px; /* Mantén la altura de la barra de navegación */
+}
+
+/* Título */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 80px; /* Espacio para que el título no se sobreponga con el logo */
+    color: white;
+}
+
+/* Ajuste para el contenedor de usuario */
+#user-container {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+/* Botón de usuario */
+.user-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #6A0DAD;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    border: none;
+    z-index: 2;
+}
+
+/* Dropdown de usuario */
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 55px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+
+/* Estilo de la información */
+.user-dropdown p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Estilo del botón de cerrar sesión */
+#logout-button {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#logout-button:hover {
+    background: #c9302c;
+}
+
+/* Estilo de la tabla de productos */
+#products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  #products-table th, #products-table td {
+    padding: 10px;
+    border: 1px solid var(--highlight-color);
+    text-align: center;
+    color: var(--text-color);
+  }
+  
+  #products-table th {
+    background-color: var(--highlight-color);
+  }
+  
+  #products-table tbody tr:hover {
+    background-color: var(--highlight-hover);
+    color: var(--bg-color);
+  }
+  
+  /* Botones de acciones */
+  #stock-actions button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #stock-actions button:hover {
+    background-color: var(--highlight-hover);
+    color: var(--bg-color);
+  }
+
+
+
+
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--secondary-color);
+    width: 250px;
+    padding: 20px;
+}
+
+.navbar {
+    list-style: none;
+}
+
+.nav-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    text-align: left;
+    background-color: var(--highlight-color);
+    border: none;
+    color: var(--text-color);
+    border-radius: 5px;
+    font-size: 18px; /* Aumentado tamaño de fuente */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    /*background-color: var(--highlight-hover); / Cambio a verde */
+    color: var(--bg-color);
+}
+.nav-btn:focus {
+    outline: 2px solid #007BFF;
+    outline-offset: 2px;
+}
+
+/* Contenido principal */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    /*background-color: var(--secondary-color); */
+    border-left: 2px solid var(--highlight-color);
+    height: 100%;  /* Asegura que se ajuste al contenedor */
+    overflow-y: auto; /* Agrega desplazamiento si el contenido es grande */
+}
+
+.section {
+    display: none; /* Inicialmente oculto */
+    margin-bottom: 20px;
+    background-color: var(--highlight-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.active-section {
+    display: block; /* Mostrar solo la sección activa */
+}
+
+/* Mejorando formularios */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input {
+    padding: 15px;  /* Aumentado padding */
+    margin-bottom: 15px;
+    border: 1px solid var(--highlight-color);
+    border-radius: 5px;
+    background-color: #fff;
+    color: #070707;
+    font-size: 18px; /* Aumentado tamaño de fuente */
+}
+
+form button {
+    padding: 12px;
+    background-color: var(--highlight-color);
+    border: none;
+    color: var(--text-color);
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+#report-month, #generate-pdf {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--highlight-color);
+    border-radius: 5px;
+  }
+  
+  #generate-pdf {
+    background-color: var(--highlight-color);
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  
+  #generate-pdf:hover {
+    background-color: var(--highlight-hover);
+    color: var(--bg-color);
+  }
+  
+
+/* Estilos para el botón de Alto Contraste */
+#contrast-toggle {
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar como bloque en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 4px 2px; /* Margen */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+#contrast-toggle:hover {
+    background-color: #45a049; /* Color de fondo más oscuro al pasar el mouse */
+}
+  .high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+.high-contrast a {
+    color: #fff;
+}
+
+.high-contrast a:hover {
+    color: #ccc;
+}
+
+.high-contrast .logo {
+    filter: invert(100%);
+}
+
+.high-contrast .sidebar {
+    background-color: #333;
+}
+
+.high-contrast .sidebar a {
+    color: #fff;
+}
+
+.high-contrast .sidebar a:hover {
+    color: #ccc;
+}
+
+.high-contrast .main-content {
+    background-color: #fff;
+}
+
+.high-contrast .main-content h1, .high-contrast .main-content h2, .high-contrast .main-content h3 {
+    color: #000;
+}
+
+.high-contrast .main-content p {
+    color: #333;
+}
+
+.high-contrast .main-content a {
+    color: #000;
+}
+
+.high-contrast .main-content a:hover {
+    color: #333;
+}
+/* Estilos para el modo de alto contraste */
+
+.high-contrast {
+
+    background-color: #000;
+
+    color: #fff;
+
+}
+
+.high-contrast a {
+
+    color: #fff;
+
+}
+
+.high-contrast button {
+
+    background-color: #fff;
+
+    color: #000;
+
+}
+/* Estilo específico para los botones Aumentar y Reducir */
+#increase-text, #decrease-text {
+    background-color: #3686ef; /* Color de fondo verde para Aumentar */
+    color: white; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar como bloque en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 4px 2px; /* Margen alrededor del botón */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+/* Efecto hover para Aumentar */
+#increase-text:hover {
+    background-color: #0e4eb3; /* Color de fondo más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+
+/* Efecto hover para Reducir */
+#decrease-text {
+    background-color: #f44336; /* Color de fondo rojo para Reducir */
+}
+
+#decrease-text:hover {
+    background-color: #e53935; /* Color de fondo más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+}
+
+/* Efecto al hacer clic */
+#increase-text:active, #decrease-text:active {
+    transform: scale(0.95); /* Reducir ligeramente el tamaño al hacer clic */
+}
